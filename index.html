@@ -3,26 +3,45 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="MSR Water Reminder - Python Windows background water reminder with OpenCV and YOLO bottle detection.">
-<title>MSR-Water-Reminder · GitHub</title>
+<meta name="description" content="MSR Water Reminder by Sanjay Raj - a Python Windows background water reminder with OpenCV and YOLO bottle detection.">
+<title>MSR-Water-Reminder · Sanjay Raj · GitHub</title>
 <style>
-:root{--bg:#0d1117;--panel:#161b22;--panel2:#21262d;--border:#30363d;--text:#f0f6fc;--muted:#8b949e;--blue:#58a6ff;--green:#238636;--green2:#2ea043;--link:#58a6ff}
-*{box-sizing:border-box}body{margin:0;background:#fff;color:#1f2328;font:14px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.top{background:var(--bg);color:var(--text);height:64px;display:flex;align-items:center;padding:0 6%;gap:18px}.mark{font-size:28px;font-weight:700}.repo{font-size:16px}.repo b{color:white}.top a{color:#fff;text-decoration:none}.wrap{max-width:1100px;margin:0 auto;padding:28px 24px}.crumb{color:#57606a;margin-bottom:18px}.crumb a{color:#0969da;text-decoration:none}.title{font-size:32px;margin:0 0 8px}.desc{font-size:16px;color:#57606a;max-width:850px;line-height:1.55}.actions{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0}.btn{display:inline-block;padding:9px 16px;border:1px solid #d0d7de;border-radius:6px;background:#f6f8fa;color:#24292f;text-decoration:none;font-weight:600}.btn.primary{background:#1f883d;color:#fff;border-color:#1f883d}.tabs{display:flex;border-bottom:1px solid #d0d7de;margin:30px 0 20px;gap:20px}.tab{padding:12px 4px;font-weight:600;color:#57606a}.tab.active{color:#24292f;border-bottom:2px solid #fd8c73}.files{border:1px solid #d0d7de;border-radius:6px;overflow:hidden}.file{display:flex;align-items:center;padding:13px 16px;border-bottom:1px solid #d8dee4}.file:last-child{border-bottom:0}.icon{width:30px;color:#57606a}.file a{color:#0969da;text-decoration:none;font-weight:600}.file small{margin-left:auto;color:#57606a}.readme{border:1px solid #d0d7de;border-radius:6px;margin-top:24px;padding:28px}.readme h2{font-size:24px;border-bottom:1px solid #d8dee4;padding-bottom:10px}.readme h3{margin-top:28px}.readme li{margin:7px 0}.code{background:#f6f8fa;border:1px solid #d0d7de;border-radius:6px;padding:14px;font-family:ui-monospace,SFMono-Regular,monospace;overflow:auto}.badge{display:inline-block;border:1px solid #d0d7de;border-radius:20px;padding:4px 10px;margin:4px 4px 4px 0;color:#57606a}.footer{text-align:center;color:#57606a;padding:35px}.footer a{color:#0969da}@media(max-width:700px){.wrap{padding:20px 14px}.title{font-size:25px}.top{padding:0 18px}.file small{display:none}}
+:root{--bg:#0d1117;--panel:#161b22;--panel2:#21262d;--border:#30363d;--text:#f0f6fc;--muted:#8b949e;--blue:#58a6ff;--green:#238636;--green2:#2ea043;--orange:#f0883e;--link:#58a6ff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#fff;color:#1f2328;font:14px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.top{background:var(--bg);color:var(--text);min-height:64px;display:flex;align-items:center;padding:0 max(24px,6%);gap:18px;position:sticky;top:0;z-index:10;border-bottom:1px solid #30363d}.mark{font-size:28px;font-weight:700;color:#fff}.repo{font-size:16px}.repo b{color:white}.top a{color:#fff;text-decoration:none}.wrap{max-width:1180px;margin:0 auto;padding:28px 24px}.crumb{color:#57606a;margin-bottom:18px}.crumb a{color:#0969da;text-decoration:none}.layout{display:grid;grid-template-columns:280px 1fr;gap:32px}.profile{padding:8px 0}.avatar{width:220px;height:220px;border-radius:50%;display:block;border:1px solid #d0d7de;box-shadow:0 2px 8px #0001}.name{font-size:26px;margin:16px 0 0}.handle{font-size:20px;color:#57606a;margin:2px 0 14px}.bio{font-size:15px;line-height:1.5;color:#57606a}.profile-buttons{display:flex;gap:8px;flex-direction:column;margin:18px 0}.profile-btn{display:block;text-align:center;padding:8px 12px;border:1px solid #d0d7de;border-radius:6px;background:#f6f8fa;color:#24292f;text-decoration:none;font-weight:600}.profile-btn.primary{background:#1f883d;color:#fff;border-color:#1f883d}.meta{color:#57606a;line-height:1.9}.meta a{color:#0969da;text-decoration:none}.title{font-size:32px;margin:0 0 8px}.desc{font-size:16px;color:#57606a;max-width:850px;line-height:1.55}.actions{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0}.btn{display:inline-block;padding:9px 16px;border:1px solid #d0d7de;border-radius:6px;background:#f6f8fa;color:#24292f;text-decoration:none;font-weight:600}.btn.primary{background:#1f883d;color:#fff;border-color:#1f883d}.tabs{display:flex;border-bottom:1px solid #d0d7de;margin:30px 0 20px;gap:20px}.tab{padding:12px 4px;font-weight:600;color:#57606a}.tab.active{color:#24292f;border-bottom:2px solid #fd8c73}.files{border:1px solid #d0d7de;border-radius:6px;overflow:hidden}.file{display:flex;align-items:center;padding:13px 16px;border-bottom:1px solid #d8dee4}.file:last-child{border-bottom:0}.icon{width:30px;color:#57606a}.file a{color:#0969da;text-decoration:none;font-weight:600}.file small{margin-left:auto;color:#57606a}.section-title{font-size:22px;margin:34px 0 14px}.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.card{border:1px solid #d0d7de;border-radius:6px;padding:18px;background:#fff}.card h3{margin:0 0 7px;font-size:17px}.card p{color:#57606a;line-height:1.5;margin:0}.card a{color:#0969da;text-decoration:none}.skills{display:flex;flex-wrap:wrap;gap:8px}.badge{display:inline-block;border:1px solid #d0d7de;border-radius:20px;padding:5px 11px;color:#57606a;background:#f6f8fa}.readme{border:1px solid #d0d7de;border-radius:6px;margin-top:24px;padding:28px}.readme h2{font-size:24px;border-bottom:1px solid #d8dee4;padding-bottom:10px}.readme h3{margin-top:28px}.readme li{margin:7px 0}.code{background:#f6f8fa;border:1px solid #d0d7de;border-radius:6px;padding:14px;font-family:ui-monospace,SFMono-Regular,monospace;overflow:auto}.footer{text-align:center;color:#57606a;padding:35px}.footer a{color:#0969da}@media(max-width:800px){.layout{grid-template-columns:1fr}.profile{text-align:center}.avatar{margin:auto;width:170px;height:170px}.profile-buttons{max-width:360px;margin:18px auto}.cards{grid-template-columns:1fr}.wrap{padding:20px 14px}.title{font-size:25px}.top{padding:0 18px}.file small{display:none}}
 </style>
 </head>
 <body>
 <header class="top"><div class="mark">◉</div><div class="repo"><a href="https://github.com/sanjayrajm/MSR-Water-Reminder"><b>sanjayrajm</b> / MSR-Water-Reminder</a></div></header>
 <main class="wrap">
-<div class="crumb">sanjayrajm / <a href="https://github.com/sanjayrajm/MSR-Water-Reminder">MSR-Water-Reminder</a></div>
+<div class="crumb"><a href="https://github.com/sanjayrajm">sanjayrajm</a> / <a href="https://github.com/sanjayrajm/MSR-Water-Reminder">MSR-Water-Reminder</a></div>
+<div class="layout">
+<aside class="profile" id="profile">
+<img class="avatar" src="https://github.com/sanjayrajm.png" alt="Sanjay Raj GitHub profile photo">
+<h1 class="name">Sanjay Raj</h1>
+<div class="handle">@sanjayrajm</div>
+<p class="bio">Developer and creator of MSR Water Reminder. Building practical software, web applications and developer tools with Python and modern technologies.</p>
+<div class="profile-buttons">
+<a class="profile-btn primary" href="https://github.com/sanjayrajm">View GitHub Profile</a>
+<a class="profile-btn" href="https://github.com/sanjayrajm/MSR-Water-Reminder">Repository</a>
+<a class="profile-btn" href="https://msrtech.tech">MSR Tech</a>
+</div>
+<div class="meta">
+<div>📍 Tamil Nadu, India</div>
+<div>💻 Software & Web Developer</div>
+<div>🚀 MSR Tech</div>
+<div>🔗 <a href="https://github.com/sanjayrajm">github.com/sanjayrajm</a></div>
+</div>
+</aside>
+<section>
 <h1 class="title">MSR Water Reminder</h1>
 <p class="desc">A Python-based Windows background water reminder with automatic startup, webcam face detection, YOLO water-bottle detection, and local photo capture.</p>
-<div><span class="badge">Python</span><span class="badge">OpenCV</span><span class="badge">YOLO</span><span class="badge">Windows</span></div>
+<div class="skills"><span class="badge">Python</span><span class="badge">OpenCV</span><span class="badge">YOLO</span><span class="badge">Tkinter</span><span class="badge">Windows</span></div>
 <div class="actions">
 <a class="btn primary" href="https://github.com/sanjayrajm/MSR-Water-Reminder/archive/refs/heads/main.zip">Download ZIP</a>
 <a class="btn" href="https://github.com/sanjayrajm/MSR-Water-Reminder">View repository</a>
 <a class="btn" href="https://github.com/sanjayrajm/MSR-Water-Reminder/blob/main/water_reminder.py">View source code</a>
 </div>
-<div class="tabs"><div class="tab active">Code</div><div class="tab">README</div></div>
+<div class="tabs"><div class="tab active">Code</div><div class="tab">README</div><div class="tab"><a href="#profile" style="color:inherit;text-decoration:none">Profile</a></div></div>
 <section class="files">
 <div class="file"><span class="icon">📄</span><a href="water_reminder.py">water_reminder.py</a><small>Main application</small></div>
 <div class="file"><span class="icon">📦</span><a href="requirements.txt">requirements.txt</a><small>Python dependencies</small></div>
@@ -31,6 +50,13 @@
 <div class="file"><span class="icon">⚖</span><a href="LICENSE">LICENSE</a><small>MIT License</small></div>
 <div class="file"><span class="icon">🚫</span><a href=".gitignore">.gitignore</a><small>Git ignore rules</small></div>
 </section>
+<h2 class="section-title">About Sanjay Raj</h2>
+<div class="cards">
+<div class="card"><h3>👨‍💻 Developer</h3><p>Focused on software development, web applications, Python projects, automation and practical developer tools.</p></div>
+<div class="card"><h3>🏢 MSR Tech</h3><p>Building software and web solutions through <a href="https://msrtech.tech">MSR Tech</a>.</p></div>
+<div class="card"><h3>🐙 GitHub</h3><p>Explore projects, source code and development work on <a href="https://github.com/sanjayrajm">Sanjay Raj's GitHub profile</a>.</p></div>
+<div class="card"><h3>📦 This Project</h3><p>MSR Water Reminder combines Windows background startup, camera-based face detection and YOLO bottle detection.</p></div>
+</div>
 <section class="readme">
 <h2>MSR Water Reminder</h2>
 <p>MSR Water Reminder is a Windows desktop application designed to remind users to drink water while running quietly in the background.</p>
@@ -39,9 +65,11 @@
 <h3>Install</h3>
 <div class="code">python -m pip install -r requirements.txt<br>python water_reminder.py</div>
 <h3>Download the project</h3>
-<p>Use the <b>Download ZIP</b> button above to download the complete GitHub source as a ZIP archive.</p>
+<p>Use the <b>Download ZIP</b> button to download the complete GitHub source as a ZIP archive.</p>
 </section>
+</section>
+</div>
 </main>
-<footer class="footer">MSR Water Reminder · Open source project · <a href="https://github.com/sanjayrajm/MSR-Water-Reminder">GitHub repository</a></footer>
+<footer class="footer">MSR Water Reminder · Created by <a href="https://github.com/sanjayrajm">Sanjay Raj</a> · <a href="https://github.com/sanjayrajm/MSR-Water-Reminder">GitHub repository</a> · <a href="https://msrtech.tech">MSR Tech</a></footer>
 </body>
 </html>
